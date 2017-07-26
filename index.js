@@ -8,8 +8,7 @@ const Config = require('./config')
 // Create a server with a host and port
 const server = new Hapi.Server()
 server.connection({
-  host: Config.server.host,
-  port: Config.server.port
+  port: process.env.PORT || Config.server.port
 })
 
 server.register([require('hapi-locals'), require('inert'), require('vision')], (err) => {
